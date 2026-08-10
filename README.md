@@ -24,10 +24,27 @@ A crypto sleeve focused on the USD/crypto axis — BTC/ETH (via spot ETFs or Alp
 - Dollar-crypto axis — DXY vs crypto: a tradeable relationship, or just risk-on/off beta?
 - Funding / basis carry — with the negative-skew caveat from the base's carry work.
 
-Nothing above is implemented or validated. This is the map, not the territory.
+## Research — first pass done
+
+Full detail in [`research/README.md`](research/README.md). The scorecard:
+
+| # | Question | Verdict |
+|---|----------|---------|
+| 1 | How to size crypto? | ✅ **keeper** — trend+vol-target (BTC+ETH blend +0.83 Sharpe, −18% DD vs buy&hold −77%) |
+| 2 | Is the USD/crypto dollar axis tradeable? | ❌ **rejected** — BTC is risk-on (+0.37 SPY), dollar-timing loses |
+
+**The synthesis:** the keeper is the growth-vs-ruin lesson in crypto — buy&hold eats a
+~−77% drawdown, while multi-horizon trend + vol-target keeps the return at ~−20% drawdown
+(BTC+ETH blend: **Sharpe +0.83, CAGR +17%, maxDD −18%**, stable across halves). But the
+namesake *dollar-axis* thesis is rejected: BTC is only mildly anti-dollar (−0.16 to UUP)
+and mostly risk-on beta (+0.37 to SPY); dollar-trend timing destroys returns. So the sleeve
+reduces to **governed crypto trend-following** (overlapping Brash). Two honest caveats: the
+history is **one crypto cycle** (2021–2026), and crypto is a **risk-on** leg, not a clean
+diversifier. Funding/basis carry needs exchange data Alpaca lacks.
 
 ## Status
-**Scaffold.** Engine wired as a submodule; strategy research not yet conducted.
+**Research: first pass complete; trend+vol-target keeper prototyped, dollar-axis rejected**
+(`research/`). No live driver; short (one-cycle) history. Nothing validated to the spine's bar.
 
 ## The Blaque Baux family
 This repo is one sleeve of the **Blaque Baux** family — a single governed engine steered in
@@ -37,7 +54,7 @@ base/blueprint and holds the [full family roster](https://github.com/Carter-Warr
 ## Layout
 ```
 engine/     the Blaque Baux platform (git submodule -> Carter-Warrens/blaquebaux)
-research/   Path-A strategy sketches (to come)
+research/   three Path-A sketches (sizing keeper, dollar-axis rejected) + prototype + scorecard
 live/       governed live drivers (once a sleeve graduates to paper A/B)
 ```
 
