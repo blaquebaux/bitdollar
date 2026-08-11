@@ -54,8 +54,17 @@ IBIT/ETHA, which only exist since 2024) the walk-forward gate FAILS (OOS Sharpe 
 [`research/bitdollar_crypto_validation.py`](research/bitdollar_crypto_validation.py) tests the *actual*
 thesis on real BTC/USD + ETH/USD (Alpaca v1beta3, 2021–2026, causal, net of cost) and it **PASSES**:
 governed trend **+0.72 Sharpe / −12% maxDD** vs buy-and-hold +0.29 / **−76%** — in line with the
-research's +0.83. The equity-rail failure was the young ETF proxy, not the edge. To trade the validated
-edge, crypto order support (v1beta3) would need wiring into the engine's venue layer (it is equity-only today).
+research's +0.83. The equity-rail failure was the young ETF proxy, not the edge.
+
+**Crypto execution is now wired** — the engine gained a v1beta3 data provider, a fractional/`gtc`
+crypto-mode venue, and a fractional governed rebalance, so [`live/bitdollar_crypto_live.jl`](live/bitdollar_crypto_live.jl)
+trades the validated edge on the **real BTC/USD + ETH/USD rail** through the same Layer-3 safety gate +
+reconcile as the spine (fractional orders, e.g. 0.05 BTC). **Dry-run by default**; graduates to a
+crypto-enabled paper account with its own isolated ledger. This is the deployable form of the edge;
+the ETF-proxy driver (`bitdollar_live.jl`) remains for equity-only accounts.
+```bash
+BB_DRYRUN=1 julia --project=engine live/bitdollar_crypto_live.jl   # real BTC/ETH book, no orders
+```
 ```bash
 BB_DRYRUN=1 julia --project=engine live/bitdollar_live.jl
 ```
