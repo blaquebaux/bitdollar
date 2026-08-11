@@ -48,6 +48,14 @@ diversifier. Funding/basis carry needs exchange data Alpaca lacks.
 the engine's order path + Layer-3 safety gate: multi-horizon trend × vol-target on spot BTC/ETH ETFs
 (IBIT/ETHA), long-only. **Dry-run by default**; graduates to paper with its own isolated keys. Short
 (one-cycle) history, risk-on leg; not validated to the spine's bar.
+
+**Validation — the edge is real, the ETF proxy is the problem.** On the equity rail (the spot ETFs
+IBIT/ETHA, which only exist since 2024) the walk-forward gate FAILS (OOS Sharpe −0.69). But
+[`research/bitdollar_crypto_validation.py`](research/bitdollar_crypto_validation.py) tests the *actual*
+thesis on real BTC/USD + ETH/USD (Alpaca v1beta3, 2021–2026, causal, net of cost) and it **PASSES**:
+governed trend **+0.72 Sharpe / −12% maxDD** vs buy-and-hold +0.29 / **−76%** — in line with the
+research's +0.83. The equity-rail failure was the young ETF proxy, not the edge. To trade the validated
+edge, crypto order support (v1beta3) would need wiring into the engine's venue layer (it is equity-only today).
 ```bash
 BB_DRYRUN=1 julia --project=engine live/bitdollar_live.jl
 ```
