@@ -43,8 +43,14 @@ history is **one crypto cycle** (2021–2026), and crypto is a **risk-on** leg, 
 diversifier. Funding/basis carry needs exchange data Alpaca lacks.
 
 ## Status
-**Research: first pass complete; trend+vol-target keeper prototyped, dollar-axis rejected**
-(`research/`). No live driver; short (one-cycle) history. Nothing validated to the spine's bar.
+**Research: first pass complete; trend+vol-target keeper — standalone driver built** (`research/` +
+`live/`; dollar-axis rejected). `live/bitdollar_live.jl` runs governed crypto trend standalone through
+the engine's order path + Layer-3 safety gate: multi-horizon trend × vol-target on spot BTC/ETH ETFs
+(IBIT/ETHA), long-only. **Dry-run by default**; graduates to paper with its own isolated keys. Short
+(one-cycle) history, risk-on leg; not validated to the spine's bar.
+```bash
+BB_DRYRUN=1 julia --project=engine live/bitdollar_live.jl
+```
 
 ## The Blaque Baux family
 This repo is one sleeve of the **Blaque Baux** family — a single governed engine steered in
