@@ -2,7 +2,7 @@
 
 **Crypto and the dollar.**
 
-BitDollar is a member of the Blaque Baux family. The [core repo](https://github.com/blaque-baux/base)
+BitDollar is a member of the Blaque Baux family. The [core repo](https://github.com/blaquebaux/base)
 is the **engine and blueprint** — a governed, systematic platform (Julia) with a venue-agnostic
 execution controller and a Layer-3 live-money safety gate. BitDollar points that engine in its own
 direction and inherits the governance wholesale.
@@ -10,7 +10,7 @@ direction and inherits the governance wholesale.
 > **Not investment advice.** Educational/research software. Nothing here is validated. See [LICENSE](LICENSE).
 
 ```bash
-git clone --recursive https://github.com/blaque-baux/bitdollar.git
+git clone --recursive https://github.com/blaquebaux/bitdollar.git
 julia --project=engine -e 'using Pkg; Pkg.instantiate()'   # one-time engine setup
 ```
 
@@ -83,12 +83,12 @@ honest research, reproducible evidence, and execution you can trust — is why C
 
 ## The Blaque Baux family
 This repo is one sleeve of the **Blaque Baux** family — a single governed engine steered in
-many directions. The [core repo](https://github.com/blaque-baux/base) is the
-base/blueprint and holds the [full family roster](https://github.com/blaque-baux/base#the-blaque-baux-family).
+many directions. The [core repo](https://github.com/blaquebaux/base) is the
+base/blueprint and holds the [full family roster](https://github.com/blaquebaux/base#the-blaquebaux-family).
 
 ## Layout
 ```
-engine/     the Blaque Baux platform (git submodule -> blaque-baux/base)
+engine/     the Blaque Baux platform (git submodule -> blaquebaux/base)
 research/   three Path-A sketches (sizing keeper, dollar-axis rejected) + prototype + scorecard
 live/       governed live drivers (once a sleeve graduates to paper A/B)
 ```
