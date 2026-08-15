@@ -93,5 +93,8 @@ research/   three Path-A sketches (sizing keeper, dollar-axis rejected) + protot
 live/       governed live drivers (once a sleeve graduates to paper A/B)
 ```
 
+## BLAQUE BAUX
+Explore the [production site](https://www.blaquebaux.com/), [interactive LABS](https://www.blaquebaux.com/labs/), and [open research CORPUS](https://www.blaquebaux.com/corpus/).
+
 ## License
 [MIT](LICENSE). (c) 2026 Carter Warrens.
